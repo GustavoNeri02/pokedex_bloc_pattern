@@ -1,6 +1,6 @@
-import 'package:bloc_pattern/app/app_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_bloc_pattern/app/app_module.dart';
 
 void main() {
-  runApp(AppWidget());
+  runApp(AppModule());
 }

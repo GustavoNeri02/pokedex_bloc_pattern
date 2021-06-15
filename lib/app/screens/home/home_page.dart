@@ -1,5 +1,7 @@
-import 'package:bloc_pattern/app/shared/model/pokemon_model.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex_bloc_pattern/app/app_bloc.dart';
+import 'package:pokedex_bloc_pattern/app/app_module.dart';
+import 'package:pokedex_bloc_pattern/app/shared/model/pokemon_model.dart';
 
 import 'components/custom_drawer.dart';
 
@@ -8,7 +10,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     List<Pokemon> listPokemons = [
       Pokemon(name: "Charizard"),
       Pokemon(name: "Pikachu"),
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
 
     Widget _buildItem(Pokemon pokemon) {
       return ListTile(
-        title: Text(pokemon.name),
+        title: SelectableText(pokemon.name),
       );
     }
 
@@ -79,11 +80,15 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                AppModule.to.bloc<AppBloc>().changeTheme();
+              },
+              icon: Icon(Icons.invert_colors))
+        ],
       ),
       body: _buildList(listPokemons),
     );
   }
-
-
 }
-
