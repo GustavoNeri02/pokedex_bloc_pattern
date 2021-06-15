@@ -1,7 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:pokedex_bloc_pattern/app/app_bloc.dart';
 import 'package:pokedex_bloc_pattern/app/app_module.dart';
-import 'package:pokedex_bloc_pattern/app/shared/model/pokemon_model.dart';
 
 import 'components/custom_drawer.dart';
 
@@ -10,41 +12,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Pokemon> listPokemons = [
-      Pokemon(name: "Charizard"),
-      Pokemon(name: "Pikachu"),
-      Pokemon(name: "Pichu"),
-      Pokemon(name: "Raichu"),
-      Pokemon(name: "Bulbassaur"),
-      Pokemon(name: "Charmander"),
-      Pokemon(name: "Squirtle"),
-      Pokemon(name: "Aron"),
-      Pokemon(name: "Ponyta"),
-      Pokemon(name: "Mew"),
-      Pokemon(name: "Mewtwo"),
-    ];
-
-    listPokemons.sort((a, b) => a.name.compareTo(b.name));
-
-    Widget _buildItem(Pokemon pokemon) {
-      return ListTile(
-        title: SelectableText(pokemon.name),
-      );
-    }
-
-    Widget _buildList(List<Pokemon> list) {
-      return ListView.separated(
-        padding: EdgeInsets.all(20),
-        itemBuilder: (BuildContext context, int index) {
-          return _buildItem(list[index]);
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return Divider();
-        },
-        itemCount: list.length,
-      );
-    }
-
     return Scaffold(
       drawer: CustomDrawer(),
       appBar: AppBar(
@@ -88,7 +55,45 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.invert_colors))
         ],
       ),
-      body: _buildList(listPokemons),
+      body: FutureBuilder(
+        future:
+            DefaultAssetBundle.of(context).loadString("assets/pokedex.json"),
+        builder: (context, snapshot) {
+          var data = json.decode(snapshot.data.toString());
+          return GridView.builder(
+            itemCount: data.length,
+            //data.length
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade300,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        data[index]["id"].toString(),
+                      ),
+                      Image.asset(
+                        data[index]["id"].toString().length == 3
+                            ? "assets/thumbnails/${data[index]["id"].toString()}.png"
+                            : data[index]["id"].toString().length == 2
+                                ? "assets/thumbnails/0${data[index]["id"].toString()}.png"
+                                : "assets/thumbnails/00${data[index]["id"].toString()}.png",
+                      ),
+                      SelectableText(data[index]["name"]["english"].toString()),
+                    ],
+                  ),
+                ),
+              );
+            },
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: MediaQueryData().size.width > 500 ? 3 : 2),
+          );
+        },
+      ),
     );
   }
 }
