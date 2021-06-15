@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_bloc_pattern/app/app_bloc.dart';
-import 'package:pokedex_bloc_pattern/app/app_module.dart';
+import 'package:pokedex_bloc_pattern/app/bloc/app_bloc.dart';
+import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
 import 'package:pokedex_bloc_pattern/app/screens/home/home_page.dart';
 import 'package:pokedex_bloc_pattern/app/shared/theme/dark_theme.dart';
 import 'package:pokedex_bloc_pattern/app/shared/theme/light_theme.dart';
