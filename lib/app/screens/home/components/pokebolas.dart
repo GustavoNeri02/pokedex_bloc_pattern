@@ -66,37 +66,36 @@ Widget pokeballs(int index, BuildContext context) {
             child: Stack(
               children: [
                 Positioned(
-                  bottom: customAppBar(context).preferredSize.height/1.7,
+                  bottom: customAppBar(context).preferredSize.height / 1.7,
                   left: 80,
                   child: Transform.rotate(
-                    angle: -pi/6,
+                    angle: -pi / 6,
                     child: Container(
                       height: customAppBar(context).preferredSize.height,
-                      width: customAppBar(context).preferredSize.height/2.5,
+                      width: customAppBar(context).preferredSize.height / 2.5,
                       decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(10),
                             bottomRight: Radius.circular(10),
-                          )
-                      ),
+                          )),
                     ),
                   ),
                 ),
                 Positioned(
-                  bottom: customAppBar(context).preferredSize.height/1.6,
+                  bottom: customAppBar(context).preferredSize.height / 1.6,
                   right: 80,
                   child: Transform.rotate(
-                    angle: pi/6,
+                    angle: pi / 6,
                     child: Container(
                       height: customAppBar(context).preferredSize.height,
-                      width: customAppBar(context).preferredSize.height/2.5,
+                      width: customAppBar(context).preferredSize.height / 2.5,
                       decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.only(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(10),
                             bottomRight: Radius.circular(10),
-                        )
+                          ),
                       ),
                     ),
                   ),
@@ -148,28 +147,27 @@ Widget pokeballs(int index, BuildContext context) {
                 Positioned(
                   left: 80,
                   child: Container(
-                    height: customAppBar(context).preferredSize.height/3,
-                    width: 40,decoration: BoxDecoration(
-                      color: Colors.yellow,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10),
-                      )
-                  ),
-                  ),
-                ),
-                Positioned(
-                  right: 80,
-                  child: Container(
-                    height: customAppBar(context).preferredSize.height/3,
+                    height: customAppBar(context).preferredSize.height / 3,
                     width: 40,
                     decoration: BoxDecoration(
                         color: Colors.yellow,
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10),
-                        )
-                    ),
+                        )),
+                  ),
+                ),
+                Positioned(
+                  right: 80,
+                  child: Container(
+                    height: customAppBar(context).preferredSize.height / 3,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.yellow,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        )),
                   ),
                 ),
                 Center(
