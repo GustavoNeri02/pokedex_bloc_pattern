@@ -14,7 +14,7 @@ AppBar customAppBar(BuildContext context) {
         initialData: 0,
         stream: AppModule.to.bloc<AppDecorationBloc>().index,
         builder: (context, snapshot) {
-          return pokeballs(snapshot.data!);
+          return pokeballs(snapshot.data!, context);
         }),
   );
 }

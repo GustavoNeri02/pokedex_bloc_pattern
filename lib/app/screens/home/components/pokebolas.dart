@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_decoration_bloc.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
+import 'package:pokedex_bloc_pattern/app/screens/home/components/custom_appbar.dart';
 
-Widget pokeballs(int index) {
+Widget pokeballs(int index, BuildContext context) {
   switch (index) {
     case 0:
       //pokeball
@@ -65,13 +66,13 @@ Widget pokeballs(int index) {
             child: Stack(
               children: [
                 Positioned(
-                  top: -15,
+                  bottom: customAppBar(context).preferredSize.height/1.7,
                   left: 80,
                   child: Transform.rotate(
-                    angle: -pi/5,
+                    angle: -pi/6,
                     child: Container(
-                      height: 45,
-                      width: 18,
+                      height: customAppBar(context).preferredSize.height,
+                      width: customAppBar(context).preferredSize.height/2.5,
                       decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.only(
@@ -83,13 +84,13 @@ Widget pokeballs(int index) {
                   ),
                 ),
                 Positioned(
-                  top: -15,
+                  bottom: customAppBar(context).preferredSize.height/1.6,
                   right: 80,
                   child: Transform.rotate(
-                    angle: pi/5,
+                    angle: pi/6,
                     child: Container(
-                      height: 45,
-                      width: 18,
+                      height: customAppBar(context).preferredSize.height,
+                      width: customAppBar(context).preferredSize.height/2.5,
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.only(
@@ -147,7 +148,7 @@ Widget pokeballs(int index) {
                 Positioned(
                   left: 80,
                   child: Container(
-                    height: 20,
+                    height: customAppBar(context).preferredSize.height/3,
                     width: 40,decoration: BoxDecoration(
                       color: Colors.yellow,
                       borderRadius: BorderRadius.only(
@@ -155,14 +156,12 @@ Widget pokeballs(int index) {
                         bottomRight: Radius.circular(10),
                       )
                   ),
-
-
                   ),
                 ),
                 Positioned(
                   right: 80,
                   child: Container(
-                    height: 20,
+                    height: customAppBar(context).preferredSize.height/3,
                     width: 40,
                     decoration: BoxDecoration(
                         color: Colors.yellow,

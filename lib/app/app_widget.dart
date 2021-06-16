@@ -18,7 +18,10 @@ class AppWidget extends StatelessWidget {
           theme: snapshot.data! ? darkTheme : lightTheme,
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          home: HomePage(),
+          home: SafeArea(
+            top: true,
+              child: HomePage(),
+          ),
         );
       },
     );

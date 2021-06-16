@@ -31,12 +31,7 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.stream), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.stream), label: ""),
-        ],
-      ),
+      persistentFooterButtons: [IconButton(onPressed: (){}, icon: Icon(Icons.close))],
     );
   }
 }
