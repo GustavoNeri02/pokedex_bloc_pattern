@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:pokedex_bloc_pattern/app/bloc/app_decoration_bloc.dart';
+import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
 
 class AppBloc extends BlocBase {
   bool isDark = false;
@@ -12,6 +14,9 @@ class AppBloc extends BlocBase {
   changeTheme() {
     isDark = !isDark;
     _theme$.add(isDark);
+    isDark
+        ? AppModule.to.bloc<AppDecorationBloc>().removePokeball()
+        : AppModule.to.bloc<AppDecorationBloc>().changePokeball();
   }
 
   @override

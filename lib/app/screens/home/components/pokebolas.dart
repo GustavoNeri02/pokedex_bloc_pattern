@@ -24,7 +24,7 @@ Widget pokeballs(int index, BuildContext context) {
         child: Center(
           child: GestureDetector(
             onTap: () {
-              AppModule.to.bloc<AppDecorationBloc>().changePokebol();
+              AppModule.to.bloc<AppDecorationBloc>().changePokeball();
             },
             child: Container(
               width: 30,
@@ -59,70 +59,68 @@ Widget pokeballs(int index, BuildContext context) {
               end: Alignment.bottomCenter,
             )),
         child: Center(
-          child: GestureDetector(
+          child: Stack(children: [
+            GestureDetector(
             onTap: () {
-              AppModule.to.bloc<AppDecorationBloc>().changePokebol();
+              AppModule.to.bloc<AppDecorationBloc>().changePokeball();
             },
-            child: Stack(
-              children: [
-                Positioned(
-                  bottom: customAppBar(context).preferredSize.height / 1.7,
-                  left: 80,
-                  child: Transform.rotate(
-                    angle: -pi / 6,
-                    child: Container(
-                      height: customAppBar(context).preferredSize.height,
-                      width: customAppBar(context).preferredSize.height / 2.5,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          )),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: customAppBar(context).preferredSize.height / 1.6,
-                  right: 80,
-                  child: Transform.rotate(
-                    angle: pi / 6,
-                    child: Container(
-                      height: customAppBar(context).preferredSize.height,
-                      width: customAppBar(context).preferredSize.height / 2.5,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
-                      ),
-                    ),
-                  ),
-                ),
-                Center(
-                  heightFactor: 2.5,
+            child: Center(
+              heightFactor: 2.5,
+              child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(width: 3),
+                    color: Colors.white),
+                child: Center(
                   child: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border.all(width: 3),
-                        color: Colors.white),
-                    child: Center(
-                      child: Container(
-                          width: 15,
-                          height: 15,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.white,
-                              border: Border.all(width: 1.5))),
-                    ),
-                  ),
+                      width: 15,
+                      height: 15,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                          border: Border.all(width: 1.5))),
                 ),
-              ],
+              ),
             ),
           ),
+            Positioned(
+              bottom: customAppBar(context).preferredSize.height / 1.7,
+              left: 80,
+              child: Transform.rotate(
+                angle: -pi / 6,
+                child: Container(
+                  height: customAppBar(context).preferredSize.height,
+                  width: customAppBar(context).preferredSize.height / 2.5,
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10),
+                      )),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: customAppBar(context).preferredSize.height / 1.6,
+              right: 80,
+              child: Transform.rotate(
+                angle: pi / 6,
+                child: Container(
+                  height: customAppBar(context).preferredSize.height,
+                  width: customAppBar(context).preferredSize.height / 2.5,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],)
         ),
       );
     case 2:
@@ -138,62 +136,59 @@ Widget pokeballs(int index, BuildContext context) {
               end: Alignment.bottomCenter,
             )),
         child: Center(
-          child: GestureDetector(
+          child: Stack(children: [
+            GestureDetector(
             onTap: () {
-              AppModule.to.bloc<AppDecorationBloc>().changePokebol();
+              AppModule.to.bloc<AppDecorationBloc>().changePokeball();
             },
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 80,
+            child: Center(
+              heightFactor: 2.5,
+              child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border.all(width: 3),
+                    color: Colors.white),
+                child: Center(
                   child: Container(
-                    height: customAppBar(context).preferredSize.height / 3,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.yellow,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        )),
-                  ),
+                      width: 15,
+                      height: 15,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.white,
+                          border: Border.all(width: 1.5))),
                 ),
-                Positioned(
-                  right: 80,
-                  child: Container(
-                    height: customAppBar(context).preferredSize.height / 3,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.yellow,
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        )),
-                  ),
-                ),
-                Center(
-                  heightFactor: 2.5,
-                  child: Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        border: Border.all(width: 3),
-                        color: Colors.white),
-                    child: Center(
-                      child: Container(
-                          width: 15,
-                          height: 15,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.white,
-                              border: Border.all(width: 1.5))),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+            Positioned(
+              left: 80,
+              child: Container(
+                height: customAppBar(context).preferredSize.height / 3,
+                width: 40,
+                decoration: BoxDecoration(
+                    color: Colors.yellow,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    )),
+              ),
+            ),
+            Positioned(
+              right: 80,
+              child: Container(
+                height: customAppBar(context).preferredSize.height / 3,
+                width: 40,
+                decoration: BoxDecoration(
+                    color: Colors.yellow,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    )),
+              ),
+            ),
+        ],)),
       );
     default:
       return Container();

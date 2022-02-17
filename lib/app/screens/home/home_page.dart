@@ -31,7 +31,6 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
-      persistentFooterButtons: [IconButton(onPressed: (){}, icon: Icon(Icons.close))],
     );
   }
 }

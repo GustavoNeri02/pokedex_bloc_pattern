@@ -15,6 +15,10 @@ class CustomDrawer extends StatelessWidget {
               UserAccountsDrawerHeader(
                   currentAccountPicture: CircleAvatar(
                     backgroundColor: Colors.white,
+                    child: ClipRRect(
+                      child: Image.asset("assets/avatar/avatar.png"),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
                   ),
                   accountName: Text("Gustavo Neri"),
                   accountEmail: Text("gutneri@hotmail.com")),
@@ -25,16 +29,21 @@ class CustomDrawer extends StatelessWidget {
                       onPressed: () {
                         AppModule.to.bloc<AppBloc>().changeTheme();
                       },
-                      icon: Icon(Icons.invert_colors)),
+                      icon: !AppModule.to.bloc<AppBloc>().isDark
+                          ?Icon(Icons.wb_incandescent_rounded,
+                              color: Colors.yellow,
+                      )
+                          :Icon(Icons.wb_incandescent_outlined),
+                  ),
                 ),
               )
             ],
           ),
-          ListTile(title: Text("Item 1")),
-          ListTile(title: Text("Item 2")),
-          ListTile(title: Text("Item 3")),
-          ListTile(title: Text("Item 4")),
-          ListTile(title: Text("Item 5")),
+          ListTile(title: Text("Pokedex"), onTap: (){},),
+          ListTile(title: Text("Meus Pokemons"), onTap: (){}),
+          ListTile(title: Text("Tipos de Pokebolas"), onTap: (){}),
+          ListTile(title: Text("Insígneas"), onTap: (){}),
+          ListTile(title: Text("Meus times"), onTap: (){}),
         ],
       ),
     );

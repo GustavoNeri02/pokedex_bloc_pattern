@@ -9,12 +9,17 @@ class AppDecorationBloc extends BlocBase {
 
   Stream<int> get index => _index$.stream;
 
-  changePokebol() {
+  changePokeball() {
     if (indexPokebola == 2) {
       indexPokebola = 0;
     } else {
       indexPokebola++;
     }
+    _index$.add(indexPokebola);
+  }
+
+  removePokeball(){
+    indexPokebola = -1;
     _index$.add(indexPokebola);
   }
 
