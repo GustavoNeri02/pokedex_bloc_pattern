@@ -7,86 +7,106 @@ import 'package:pokedex_bloc_pattern/app/bloc/app_decoration_bloc.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
 import 'package:pokedex_bloc_pattern/app/screens/home/components/custom_appbar.dart';
 
+Widget buttonPokeball() {
+  return GestureDetector(
+    onTap: () {
+      AppModule.to.bloc<AppDecorationBloc>().changePokeball();
+    },
+    child: Container(
+      width: 30,
+      height: 30,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          border: Border.all(width: 3),
+          color: Colors.white),
+      child: Center(
+        child: Container(
+            width: 15,
+            height: 15,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.white,
+                border: Border.all(width: 1.5))),
+      ),
+    ),
+  );
+}
+
 Widget pokeballs(int index, BuildContext context) {
   switch (index) {
     case 0:
       //pokeball
       return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(50)),
-            border: Border.all(),
             gradient: LinearGradient(
-              colors: [Colors.red, Colors.black, Colors.white],
-              stops: [0.45, 0.5, 0.55],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )),
-        child: Center(
-          child: GestureDetector(
-            onTap: () {
-              AppModule.to.bloc<AppDecorationBloc>().changePokeball();
-            },
-            child: Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(width: 3),
-                  color: Colors.white),
-              child: Center(
-                child: Container(
-                    width: 15,
-                    height: 15,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.white,
-                        border: Border.all(width: 1.5))),
-              ),
+          colors: [Colors.black, Colors.transparent],
+          stops: [0.5, 0.5],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        )),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Flex(
+              direction: Axis.vertical,
+              children: [
+                Flexible(
+                    flex: 73,
+                    child: Container(
+                      color: Colors.red,
+                    )),
+                Flexible(
+                    flex: 7,
+                    child: Container(
+                      color: Colors.black,
+                    )),
+                Flexible(
+                    flex: 27,
+                    child: Container(
+                      color: Colors.transparent,
+                    )),
+              ],
             ),
-          ),
+            Positioned(bottom: 0, child: buttonPokeball())
+          ],
         ),
       );
     case 1:
       //greatball
       return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(50)),
-            border: Border.all(),
             gradient: LinearGradient(
-              colors: [Colors.blue, Colors.black, Colors.white],
-              stops: [0.45, 0.5, 0.55],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )),
-        child: Center(
-          child: Stack(children: [
-            GestureDetector(
-            onTap: () {
-              AppModule.to.bloc<AppDecorationBloc>().changePokeball();
-            },
-            child: Center(
-              heightFactor: 2.5,
-              child: Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(width: 3),
-                    color: Colors.white),
-                child: Center(
-                  child: Container(
-                      width: 15,
-                      height: 15,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                          border: Border.all(width: 1.5))),
-                ),
-              ),
+          colors: [Colors.black, Colors.transparent],
+          stops: [0.5, 0.5],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        )),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Flex(
+              direction: Axis.vertical,
+              children: [
+                Flexible(
+                    flex: 73,
+                    child: Container(
+                      color: Colors.blue,
+                    )),
+                Flexible(
+                    flex: 7,
+                    child: Container(
+                      color: Colors.black,
+                    )),
+                Flexible(
+                    flex: 27,
+                    child: Container(
+                      color: Colors.transparent,
+                    )),
+              ],
             ),
-          ),
+            Positioned(bottom: 0, child: buttonPokeball()),
             Positioned(
-              bottom: customAppBar(context).preferredSize.height / 1.7,
+              bottom: customAppBar(context).preferredSize.height / 2,
               left: 80,
               child: Transform.rotate(
                 angle: -pi / 6,
@@ -103,7 +123,7 @@ Widget pokeballs(int index, BuildContext context) {
               ),
             ),
             Positioned(
-              bottom: customAppBar(context).preferredSize.height / 1.6,
+              bottom: customAppBar(context).preferredSize.height / 2,
               right: 80,
               child: Transform.rotate(
                 angle: pi / 6,
@@ -120,52 +140,49 @@ Widget pokeballs(int index, BuildContext context) {
                 ),
               ),
             )
-          ],)
+          ],
         ),
       );
     case 2:
       //ultraball
       return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(50)),
-            border: Border.all(),
             gradient: LinearGradient(
-              colors: [Colors.black, Colors.black, Colors.white],
-              stops: [0.45, 0.5, 0.55],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )),
+          colors: [Colors.black, Colors.transparent],
+          stops: [0.5, 0.5],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        )),
         child: Center(
-          child: Stack(children: [
-            GestureDetector(
-            onTap: () {
-              AppModule.to.bloc<AppDecorationBloc>().changePokeball();
-            },
-            child: Center(
-              heightFactor: 2.5,
-              child: Container(
-                width: 30,
-                height: 30,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(width: 3),
-                    color: Colors.white),
-                child: Center(
-                  child: Container(
-                      width: 15,
-                      height: 15,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Colors.white,
-                          border: Border.all(width: 1.5))),
-                ),
-              ),
+            child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Flex(
+              direction: Axis.vertical,
+              children: [
+                Flexible(
+                    flex: 73,
+                    child: Container(
+                      color: Colors.black,
+                    )),
+                Flexible(
+                    flex: 7,
+                    child: Container(
+                      color: Colors.black,
+                    )),
+                Flexible(
+                    flex: 27,
+                    child: Container(
+                      color: Colors.transparent,
+                    )),
+              ],
             ),
-          ),
+            Positioned(bottom: 0, child: buttonPokeball()),
             Positioned(
+              top: 0,
               left: 80,
               child: Container(
-                height: customAppBar(context).preferredSize.height / 3,
+                height: customAppBar(context).preferredSize.height / 2.5,
                 width: 40,
                 decoration: BoxDecoration(
                     color: Colors.yellow,
@@ -176,9 +193,10 @@ Widget pokeballs(int index, BuildContext context) {
               ),
             ),
             Positioned(
+              top: 0,
               right: 80,
               child: Container(
-                height: customAppBar(context).preferredSize.height / 3,
+                height: customAppBar(context).preferredSize.height / 2.5,
                 width: 40,
                 decoration: BoxDecoration(
                     color: Colors.yellow,
@@ -188,7 +206,8 @@ Widget pokeballs(int index, BuildContext context) {
                     )),
               ),
             ),
-        ],)),
+          ],
+        )),
       );
     default:
       return Container();

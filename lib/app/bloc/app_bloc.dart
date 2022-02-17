@@ -14,9 +14,11 @@ class AppBloc extends BlocBase {
   changeTheme() {
     isDark = !isDark;
     _theme$.add(isDark);
-    isDark
-        ? AppModule.to.bloc<AppDecorationBloc>().removePokeball()
-        : AppModule.to.bloc<AppDecorationBloc>().changePokeball();
+    if (isDark) {
+      AppModule.to.bloc<AppDecorationBloc>().removePokeball();
+    } else {
+      AppModule.to.bloc<AppDecorationBloc>().changePokeball();
+    }
   }
 
   @override

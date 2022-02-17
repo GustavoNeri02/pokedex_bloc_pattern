@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_bloc.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
 import 'package:pokedex_bloc_pattern/app/screens/home/home_page.dart';
@@ -14,14 +15,12 @@ class AppWidget extends StatelessWidget {
       stream: AppModule.to.bloc<AppBloc>().theme,
       initialData: false,
       builder: (context, snapshot) {
+        SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
         return MaterialApp(
           theme: snapshot.data! ? darkTheme : lightTheme,
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          home: SafeArea(
-            top: true,
-              child: HomePage(),
-          ),
+          title: 'Pokedex',
+          home: HomePage(),
         );
       },
     );

@@ -18,7 +18,7 @@ class AppDecorationBloc extends BlocBase {
     _index$.add(indexPokebola);
   }
 
-  removePokeball(){
+  removePokeball() {
     indexPokebola = -1;
     _index$.add(indexPokebola);
   }
