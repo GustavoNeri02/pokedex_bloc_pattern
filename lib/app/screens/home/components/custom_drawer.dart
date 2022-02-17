@@ -26,24 +26,28 @@ class CustomDrawer extends StatelessWidget {
                 right: 20,
                 child: SafeArea(
                   child: IconButton(
-                      onPressed: () {
-                        AppModule.to.bloc<AppBloc>().changeTheme();
-                      },
-                      icon: !AppModule.to.bloc<AppBloc>().isDark
-                          ?Icon(Icons.wb_incandescent_rounded,
-                              color: Colors.yellow,
-                      )
-                          :Icon(Icons.wb_incandescent_outlined),
+                    onPressed: () {
+                      AppModule.to.bloc<AppBloc>().changeTheme();
+                    },
+                    icon: !AppModule.to.bloc<AppBloc>().isDark
+                        ? Icon(
+                            Icons.wb_incandescent_rounded,
+                            color: Colors.yellow,
+                          )
+                        : Icon(Icons.wb_incandescent_outlined),
                   ),
                 ),
               )
             ],
           ),
-          ListTile(title: Text("Pokedex"), onTap: (){},),
-          ListTile(title: Text("Meus Pokemons"), onTap: (){}),
-          ListTile(title: Text("Tipos de Pokebolas"), onTap: (){}),
-          ListTile(title: Text("Insígneas"), onTap: (){}),
-          ListTile(title: Text("Meus times"), onTap: (){}),
+          ListTile(
+            title: Text("Pokedex"),
+            onTap: () {},
+          ),
+          ListTile(title: Text("Meus Pokemons"), onTap: () {}),
+          ListTile(title: Text("Tipos de Pokebolas"), onTap: () {}),
+          ListTile(title: Text("Insígneas"), onTap: () {}),
+          ListTile(title: Text("Meus times"), onTap: () {}),
         ],
       ),
     );

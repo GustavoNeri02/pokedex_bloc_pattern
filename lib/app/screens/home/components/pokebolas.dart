@@ -53,7 +53,10 @@ Widget pokeballs(int index, BuildContext context) {
                 Flexible(
                     flex: 73,
                     child: Container(
-                      color: Colors.red,
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.vertical(top: Radius.circular(1000))
+                      ),
                     )),
                 Flexible(
                     flex: 7,
@@ -90,7 +93,10 @@ Widget pokeballs(int index, BuildContext context) {
                 Flexible(
                     flex: 73,
                     child: Container(
-                      color: Colors.blue,
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(1000))
+                        )
                     )),
                 Flexible(
                     flex: 7,

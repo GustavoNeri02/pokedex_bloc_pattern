@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_decoration_bloc.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
 

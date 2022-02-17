@@ -5,6 +5,7 @@ import 'package:flutter/rendering.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_bloc.dart';
 import 'package:pokedex_bloc_pattern/app/bloc/app_module.dart';
 import 'package:pokedex_bloc_pattern/app/screens/home/components/custom_appbar.dart';
+import 'package:pokedex_bloc_pattern/app/screens/home/components/custom_bottom_navigation_bar.dart';
 
 import 'components/custom_drawer.dart';
 
@@ -33,28 +34,7 @@ class HomePage extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: AppModule.to.bloc<AppBloc>().isDark
-          ? null
-          : Container(
-              height: 41,
-              child: Flex(
-                direction: Axis.vertical,
-                children: [
-                  Flexible(
-                    flex: 7,
-                    child: Container(
-                      color: Colors.black,
-                    ),
-                  ),
-                  Flexible(
-                    flex: 93,
-                    child: Container(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
 }
